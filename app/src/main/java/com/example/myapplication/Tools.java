@@ -20,49 +20,51 @@ public class Tools {
     public static void showView(ViewGroup view) {
         showView(view, 0);
     }
-    public static void showView(ViewGroup view,int x){
-//        RotateAnimation ra  = new RotateAnimation(180,360,view.getWidth()/2,view.getHeight());
-//        ra.setStartOffset(200);
-//        ra.setDuration(500);
-//        ra.setFillAfter(true);
-//
-//
-//
-//        view.startAnimation(ra);
-//        for (int i = 0; i <view.getChildCount() ; i++) {
-//            view.getChildAt(i).setEnabled(true);
-//        }
-//          view.setRotation();
-         ObjectAnimator oa = ObjectAnimator.ofFloat(view,"rotation",180,360);
+
+    public static void showView(ViewGroup view, int x) {
+        RotateAnimation ra  = new RotateAnimation(180,360,view.getWidth()/2,view.getHeight());
+        ra.setStartOffset(200);
+        ra.setDuration(500);
+        ra.setFillAfter(true);
+
+        view.startAnimation(ra);
+        for (int i = 0; i <view.getChildCount() ; i++) {
+            view.getChildAt(i).setEnabled(true);
+//            view.getChildAt(i).setClickable(true);
+        }
+
+
+     /*    ObjectAnimator oa = ObjectAnimator.ofFloat(view,"rotation",180,360);
          oa.setDuration(500);
          oa.setStartDelay(x);
          oa.start();
          view.setPivotX(view.getWidth()/2);
-         view.setPivotY(view.getHeight());
-
+         view.setPivotY(view.getHeight());*/
 
 
     }
 
-    public static void hideView(ViewGroup view,int x) {
+    public static void hideView(ViewGroup view, int x) {
 
-//        for (int i = 0; i <view.getChildCount() ; i++) {
-//            view.getChildAt(i).setEnabled(false);
-//        }
-//        RotateAnimation ra  = new RotateAnimation(0,180,view.getWidth()/2,view.getHeight());
-//        ra.setStartOffset(200);
-//        ra.setDuration(500);
-//        ra.setFillAfter(true);
-//        view.startAnimation(ra);
-//    }
+        for (int i = 0; i < view.getChildCount(); i++) {
+            view.getChildAt(i).setEnabled(false);
+//            view.getChildAt(i).setClickable(false);
+        }
+        RotateAnimation ra = new RotateAnimation(0, 180, view.getWidth() / 2, view.getHeight());
+        ra.setStartOffset(200);
+        ra.setDuration(500);
+        ra.setFillAfter(true);
+        view.startAnimation(ra);
+    }
 
-        ObjectAnimator oa = ObjectAnimator.ofFloat(view,"rotation",0,180);
+
+       /* ObjectAnimator oa = ObjectAnimator.ofFloat(view,"rotation",0,180);
         oa.setDuration(500);
         oa.setStartDelay(x);
         oa.start();
         view.setPivotX(view.getWidth()/2);
-        view.setPivotY(view.getHeight());
-    }
+        view.setPivotY(view.getHeight());*/
+
 
 
 }
