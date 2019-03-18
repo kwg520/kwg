@@ -22,6 +22,8 @@ public class Tools {
     }
 
     public static void showView(ViewGroup view, int x) {
+
+        //利用的补间动画
         RotateAnimation ra  = new RotateAnimation(180,360,view.getWidth()/2,view.getHeight());
         ra.setStartOffset(200);
         ra.setDuration(500);
@@ -34,7 +36,9 @@ public class Tools {
         }
 
 
-     /*    ObjectAnimator oa = ObjectAnimator.ofFloat(view,"rotation",180,360);
+     /*
+         利用的属性动画完成
+       ObjectAnimator oa = ObjectAnimator.ofFloat(view,"rotation",180,360);
          oa.setDuration(500);
          oa.setStartDelay(x);
          oa.start();
@@ -50,6 +54,7 @@ public class Tools {
             view.getChildAt(i).setEnabled(false);
 //            view.getChildAt(i).setClickable(false);
         }
+        //利用的补间动画
         RotateAnimation ra = new RotateAnimation(0, 180, view.getWidth() / 2, view.getHeight());
         ra.setStartOffset(200);
         ra.setDuration(500);
@@ -58,7 +63,9 @@ public class Tools {
     }
 
 
-       /* ObjectAnimator oa = ObjectAnimator.ofFloat(view,"rotation",0,180);
+       /*
+       利用的属性动画完成
+       ObjectAnimator oa = ObjectAnimator.ofFloat(view,"rotation",0,180);
         oa.setDuration(500);
         oa.setStartDelay(x);
         oa.start();
