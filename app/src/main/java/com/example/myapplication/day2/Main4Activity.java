@@ -59,11 +59,12 @@ public class Main4Activity extends AppCompatActivity {
 
         }
         adapter = new MyPgAdapter(this,imageViews);
-
+        vp.setAdapter(adapter);
+        //先设置适配器后设置位置，否则则不会生效，切记
         tvTitle.setText(titles[previous]);
         int item = Integer.MAX_VALUE/2 - Integer.MAX_VALUE/2%imageViews.size();
         vp.setCurrentItem(item);
-        vp.setAdapter(adapter);
+
          vp.addOnPageChangeListener(new MyVplistenr());
 
 
