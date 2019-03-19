@@ -1,5 +1,7 @@
 package com.example.myapplication.day2;
 
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -15,18 +17,30 @@ import java.util.List;
 public class Main4Activity extends AppCompatActivity {
 
     private final String TAG = Main4Activity.this.getClass().getSimpleName() ;
-    private ViewPager vp;
+    private static ViewPager vp;
 
      private int [] ids = new int[]{R.drawable.a,R.drawable.b,R.drawable.c,R.drawable.a,R.drawable.d};
      private List<ImageView> imageViews ;
      MyPgAdapter adapter ;
-     private String[] titles = new String[]{
+     public static String[] titles = new String[]{
              "你是小甲","你是小明","你是小刚","你是小飞","你是小云"
      };
      private LinearLayout llPonits;
      private TextView tvTitle ;
 
      private int previous = 0;
+
+     public static   Handler handler = new Handler(){
+         @Override
+         public void handleMessage(Message msg) {
+             super.handleMessage(msg);
+             int item = vp.getCurrentItem() +1 ;
+             vp.setCurrentItem(item);
+
+             handler.sendEmptyMessageDelayed(0,3000);
+         }
+     };
+    private boolean isDragging =false;
 
 
     @Override
@@ -66,7 +80,7 @@ public class Main4Activity extends AppCompatActivity {
         vp.setCurrentItem(item);
 
          vp.addOnPageChangeListener(new MyVplistenr());
-
+         handler.sendEmptyMessageDelayed(0,3000);
 
     }
 
@@ -99,9 +113,19 @@ public class Main4Activity extends AppCompatActivity {
          */
 
         @Override
-        public void onPageScrollStateChanged(int i) {
+        public void onPageScrollStateChanged(int state) {
+            if(ViewPager.SCROLL_STATE_DRAGGING == state){
+                isDragging  = true;
+                handler.removeCallbacksAndMessages(null);
+            }else if(ViewPager.SCROLL_STATE_IDLE==state){
 
+            }else if(state ==ViewPager.SCROLL_STATE_IDLE && isDragging){
+                isDragging = false;
+                handler.removeCallbacksAndMessages(null);
+                handler.sendEmptyMessageDelayed(0,3000);
+            }
 
         }
     }
+
 }

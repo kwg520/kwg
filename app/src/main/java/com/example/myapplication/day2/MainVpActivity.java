@@ -51,7 +51,7 @@ public class MainVpActivity extends AppCompatActivity {
     private boolean isDragging = false;
 
     // 图片标题集合
-    private final String[] imageDescriptions = {
+    private  final  String[] imageDescriptions = {
             "尚硅谷波河争霸赛！",
             "凝聚你我，放飞梦想！",
             "抱歉没座位了！",
