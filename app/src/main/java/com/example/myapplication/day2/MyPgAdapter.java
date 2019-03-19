@@ -22,7 +22,9 @@ public class MyPgAdapter extends PagerAdapter {
     @NonNull
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
-       ImageView imageView = imageViews.get(position);
+
+        int realposition = position%imageViews.size();
+      final   ImageView imageView = imageViews.get(realposition);
        container.addView(imageView);
         return imageView;
     }
@@ -34,7 +36,7 @@ public class MyPgAdapter extends PagerAdapter {
 
     @Override
     public int getCount() {
-        return imageViews.size();
+        return Integer.MAX_VALUE;
     }
 
     @Override
