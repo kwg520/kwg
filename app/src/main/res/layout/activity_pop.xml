@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="5dp"
+    android:orientation="horizontal"
+    tools:context=".day2.PopActivity">
+    <EditText
+        android:padding="10dp"
+        android:id="@+id/et_input"
+        android:hint="请输入文字"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+
+        android:layout_height="wrap_content" />
+    <ImageView
+        android:id="@+id/iv_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/delete"
+        android:layout_gravity="center_vertical"
+        />
+    <ImageView
+        android:id="@+id/iv_down_arrow"
+        android:src="@drawable/down_arrow"
+        android:layout_width="90dp"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
