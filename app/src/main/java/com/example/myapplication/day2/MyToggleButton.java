@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -69,8 +70,10 @@ public class MyToggleButton extends View implements View.OnClickListener {
      */
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        //注意在activity的oncreate方法里面获取这些是0因为那里获取不到
 //        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        setMeasuredDimension(backgroundBitmap.getWidth(), backgroundBitmap.getHeight());
+        Log.e("=======","ingetWidth()"+backgroundBitmap.getWidth()+"---"+"ingetHeight()"+backgroundBitmap.getHeight());
+        setMeasuredDimension(backgroundBitmap.getWidth(), backgroundBitmap.getHeight());//决定当前控件的大小
     }
 
     /**
@@ -141,7 +144,7 @@ public class MyToggleButton extends View implements View.OnClickListener {
                 //6.数据还原
                 startX = event.getX();
 
-                if(Math.abs(endX - lastX) > 5){
+                if(Math.abs(endX - lastX) > 5){  //Math.abs(x) 函数返回指定数字 “x“ 的绝对值
                     //滑动
                     isEnableClick = false;
                 }
